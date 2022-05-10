@@ -7,7 +7,7 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: Ruben Esteche Araujo
-description: An easy to blog with jupyter. I intend to talk about physics, technology, programming and many curiosities 
+description: Personal blog of Ruben Esteche Araujo. Aplace to talk about physics, technology, programming and many curiosities 
 github_username: REsteche
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "REsteche_blog"
