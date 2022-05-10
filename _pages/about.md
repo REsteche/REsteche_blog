@@ -4,8 +4,11 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+# Hello again
 
+In case you want to know more about my recent work, you can check my github [here](https://github.com/REsteche) . I promiss I'll do my best to keep it updated! 
 
+Remember you can contact me through my institutional or professional email anytime for doubts or sugestions. 
 
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+Make sure you check out everything that interests you on [my site](https://resteche.github.io/) again! I hope you like my content. 
+
