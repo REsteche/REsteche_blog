@@ -6,6 +6,7 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
+
 title: Ruben Esteche Araujo
 description: Personal blog of Ruben Esteche Araujo. Aplace to talk about physics, technology, programming and many curiosities 
 github_username: REsteche
@@ -14,7 +15,9 @@ github_repo: "REsteche_blog"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
+
 url: "https://resteche.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
 
 ###########################################################
 #########  Special Instructions for baseurl ###############
@@ -58,7 +61,7 @@ annotations: false
 show_tags: true
 
 # Add your Google Analytics ID here if you have one and want to use it
-google_analytics: UA-57531313-5
+google_analytics: 
 
 exclude:
   - docker-compose.yml
