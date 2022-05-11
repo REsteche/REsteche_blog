@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>A temporal Gaussian wave packet | Personal Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="A temporal Gaussian wave packet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this Post I will show how we can use the STS theory to create temporal distributions." />
+<meta property="og:description" content="In this Post I will show how we can use the STS theory to create temporal distributions." />
+<link rel="canonical" href="https://resteche.github.io/REsteche_blog/quantum%20mechanics/quantum%20foundations/time%20distributions/2022/01/28/Pacote_gaussiano.html" />
+<meta property="og:url" content="https://resteche.github.io/REsteche_blog/quantum%20mechanics/quantum%20foundations/time%20distributions/2022/01/28/Pacote_gaussiano.html" />
+<meta property="og:site_name" content="Personal Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-28T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A temporal Gaussian wave packet" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-01-28T00:00:00-06:00","datePublished":"2022-01-28T00:00:00-06:00","description":"In this Post I will show how we can use the STS theory to create temporal distributions.","headline":"A temporal Gaussian wave packet","mainEntityOfPage":{"@type":"WebPage","@id":"https://resteche.github.io/REsteche_blog/quantum%20mechanics/quantum%20foundations/time%20distributions/2022/01/28/Pacote_gaussiano.html"},"url":"https://resteche.github.io/REsteche_blog/quantum%20mechanics/quantum%20foundations/time%20distributions/2022/01/28/Pacote_gaussiano.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/REsteche_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://resteche.github.io/REsteche_blog/feed.xml" title="Personal Blog" /><link rel="shortcut icon" type="image/x-icon" href="/REsteche_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/REsteche_blog/">Personal Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/REsteche_blog/about/">About Me</a><a class="page-link" href="/REsteche_blog/search/">Search</a><a class="page-link" href="/REsteche_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">A temporal Gaussian wave packet</h1><p class="page-description">In this Post I will show how we can use the STS theory to create temporal distributions.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-01-28T00:00:00-06:00" itemprop="datePublished">
+        Jan 28, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      18 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/REsteche_blog/categories/#Quantum Mechanics">Quantum Mechanics</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/REsteche_blog/categories/#Quantum Foundations">Quantum Foundations</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/REsteche_blog/categories/#Time distributions">Time distributions</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/REsteche/REsteche_blog/tree/master/_notebooks/2022-01-28-Pacote_gaussiano.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/REsteche_blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/REsteche/REsteche_blog/master?filepath=_notebooks%2F2022-01-28-Pacote_gaussiano.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/REsteche/REsteche_blog/blob/master/_notebooks/2022-01-28-Pacote_gaussiano.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FREsteche%2FREsteche_blog%2Fblob%2Fmaster%2F_notebooks%2F2022-01-28-Pacote_gaussiano.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Numerical-evolution-for-integrals-without-analytical-solution">Numerical evolution for integrals without analytical solution </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-01-28-Pacote_gaussiano.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our intention now turns to proposing an analytical solution to equation (5.6) of Ricardo's thesys. This problem has already been analyzed in different ways, and it has been shown that for a free particle problem, there is a closed form for its solution as in <a href="https://repositorio.ufpe.br/bitstream/123456789/29706/1/DISSERTA%C3%87%C3%83O%20Ricardo%20Alexandre%20dos%20Santos%20Ximenes%20Filho.pdf">ref. session 2.4</a>. Now, let's show that for a wide range of physical systems, which are under the action of a potential independent of time, it is possible to use a similar technique to obtain a general solution. Recalling that:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\sqrt{2m} \hat{\sigma_z}  [i \hbar \frac{\partial}{\partial t} - V(T,x)]^{1/2} \phi (t|x)  = -i \hbar \frac{\partial}{\partial x}  \phi (t|x) \tag{1}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Analogously to the reference for free particle solution, we can use a separation of variables in the form $\phi(t|x) = e^{-i\epsilon t/ \hbar} \phi_\epsilon (x)$, and by the same argument of series expansion it's clear that</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\hat{\sigma_z} \sqrt{2m [\epsilon - V(x)]} \phi_\epsilon (x) = -i \hbar \frac{d}{dx} \phi_\epsilon (x) \tag{2}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is a first-order differential equation whose solution is given by</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\phi_\epsilon (x) = \frac{1}{\sqrt{2 \pi \hbar}} e^{(i/\hbar)\hat{\sigma_z} \int_{0}^{x} \sqrt{2m [\epsilon - V(x)]} dx^{\prime}} \tag{3}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, since (3) is still a linear equation, we can write the general solution so that</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\phi (t|x) = \frac{1}{\sqrt{2 \pi \hbar}} \int d\epsilon C_\epsilon  e^{(i/\hbar)\hat{\sigma}_z \int_{0}^{x} \sqrt{2m [\epsilon - V(x)]} dx^{\prime}-i\epsilon t /\hbar}  \tag{4}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Or in terms of the classical momentum's $P(\epsilon, x) = \pm \sqrt{2m\epsilon} $</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$ \phi (t|x) = \frac{1}{\sqrt{2 \pi \hbar}} \int  d\epsilon C_\epsilon e^{(i/\hbar)  \int_{0}^{x} P(\epsilon; x^{\prime}) dx^{\prime}-i\epsilon t /\hbar} \tag{5}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to solve then analytically for any potential $V(x)$ one need only to perform the integration in the exponential argument to obtain the general solution of the problem. At first glance, this simplicity can seem strange, after all, for the Schrödinger equation we don't have a uniquely shaped solution for every $V(x)$. However, this result is somewhat expected: first, analyzing Eq. (5.6) of the thesys, we see that the potential $V(x,t) = V(x)$ we choose only depends on the conditional parameter of this equation, i.e., of the $x$ position. Thus, if we want to obtain an equivalent result in the Schrödinger equation, we must choose a potential $V(x,t)$ that only depends on the conditional parameter t of this equation, so we will find the same result in the symmetric construction of quantum mechanics.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Proceeding with the solution, let us first consider the simplest case to be that of a free particle, where the potential will then be given by $V(x) = 0$. If we then apply these conditions to equation (4) and consider only the positive branch of the solution matrix $\hat{\sigma_z}$ we will reduce it to</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\phi (t|0) = \frac{1}{\sqrt{2 \pi \hbar}} \int d\epsilon C_\epsilon  e^{(-i  \epsilon  t/\hbar)}  \tag{6}  $$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note here that we are now going to proceed in <a href="https://www.asc.ohio-state.edu/jayaprakash.1/631/freegauss.pdf">very similar</a> to what is done in the traditional construction of quantum theory, with the aim now to evolve spatially through the fourier transform the conditional space wave function of our theory</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Taking 
+$$\phi (t|0) = \frac{1}{\sqrt{2 \pi \hbar}} \exp{\left[\frac{-(t-t_0)^2}{2 \sigma^2} \right]} \exp{\left[\frac{i \epsilon_0 t}{\hbar} \right]} \tag{7}$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As an initial condition, where you notice that I set a  Gaussian in $x=0$ with standard deviation $\sigma$, we follow <a href="https://www.wolframalpha.com/input/?i=Fourier+transform+calculator&amp;assumption=%7B%22F%22%2C+%22FourierTransformCalculator%22%2C+%22transformfunction%22%7D+-%3E%22%281%2Fsqrt%282*pi*h%29+%29*+e%5E%28-%28t-T%29%5E2%2F%282*a%5E2%29%29*e%5E%28i*e*t%2Fh%29%22&amp;assumption=%7B%22F%22%2C+%22FourierTransformCalculator%22%2C+%22variable1%22%7D+-%3E%22t%22&amp;assumption=%7B%22F%22%2C+%22FourierTransformCalculator%22%2C+%22variable2%22%7D+-%3E%22w%22">applying the Fourier transform</a> already substituting for the coordinate $\epsilon$ so that</p>
+<p>
+$$\phi(t|0) = \int_{-\infty}^{\infty} \frac{d \epsilon}{\sqrt{2 \pi \hbar}} \psi(\epsilon) e^{i \epsilon t} \tag{8} $$
+</p>
+<p>
+$$\psi(\epsilon) \equiv C_\epsilon = \int_{-\infty}^{\infty} \frac{1}{\sqrt{2 \pi\hbar} } \left ( \frac{1} {\sqrt{2\pi \hbar}} e^{-(t-t_0)^2/(2 \sigma^2)} e^{(i \epsilon_0 t)/\hbar} \right ) e^{ -i\epsilon t} dt$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$= \frac{1}{ 2 \pi \hbar}   \int_{-\infty}^{\infty} \left (  e^{-(t-t_0)^2/(2 \sigma^2)}  e^{(i \epsilon_0 t)/\hbar} \right )  e^{-i \epsilon t} dt$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$ = \frac{1}{ 2 \pi \hbar} \frac{\exp{\left ( - \frac{(\epsilon_0 + \hbar \epsilon)\left ( \sigma^2(\epsilon_0 + \hbar \epsilon)-2i \hbar t_0 \right ) }{2 \hbar^2} \right )}}{\sqrt{\frac{1}{\sigma^2}}}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$=  \frac{\sigma^2}{ 2 \pi \hbar} \exp{\left ( - \frac{(\epsilon_0 + \hbar \epsilon)\left ( \sigma^2(\epsilon_0 + \hbar \epsilon)-2i \hbar t_0 \right ) }{2 \hbar^2} \right )} \tag{9}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What this is telling us is that the Gaussian time wave function is a superposition of different energies, with the probability of finding these energies between $\epsilon_1$ and $\epsilon_1 + d \epsilon$ being proportional to $ \exp{\left ( - \frac{(\epsilon_0 + \hbar \epsilon)\left ( \sigma^2(\epsilon_0 + \hbar \epsilon)-2i \hbar t_0 \right ) }{2 \hbar^2} \right ) } d\epsilon$. In order to recap, it is worth recalling the development of this problem within the scope of traditional theory, proceeding in the same way and applying a Fourier transform into a Gaussian and obtaining another Gaussian. Note here that the results obtained are, as well as those proposed, symmetrical and equivalent. We will also point out that our initial wave function (5) which represents the solution found to the Schroedinger equation conditional space represents a superposition of different plane waves associated with different coefficients (which we usually refer to as amplitudes).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, finally in possession of the coefficients $C_\epsilon$ we can substitute back the results in (7.5) and obtain the result of the space-conditional wavefunction given an initial Gaussian space-boundary condition.</p>
+<p>As we also have the general result for $\phi(t|x)$ in the case of the free particle, we can substitute in (7.4) the value found for $C_\epsilon$ and understand how the wave function will propagate in all instants of time t, given that we are going to observe it in a known space x.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="https://www.wolframalpha.com/input/?i=integrate+&amp;assumption=%7B%22F%22%2C+%22Integral%22%2C+%22variable%22%7D+-%3E%22%CE%B5%22&amp;assumption=%7B%22C%22%2C+%22integrate%22%7D+-%3E+%7B%22Calculator%22%7D&amp;assumption=%7B%22F%22%2C+%22Integral%22%2C+%22integrand%22%7D+-%3E%22e%5E%28-%28O%2Bh*%CE%B5%29%28a%5E2%28O%2B+h*%CE%B5%29-2*i*h*T%29%2F%282*h%5E2%29%29*e%5E%28%28i%2Fh%29*%28sqrt%282*m*%CE%B5%29*x%29-i*%CE%B5*t%2Fh%29%22">Evolved space result</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$ \phi (t|x) = \frac{1}{\sqrt{2 \pi \hbar}} \int d\epsilon \frac{\sigma^2}{ 2 \pi \hbar} \exp{\left ( - \frac{(\epsilon_0 + \hbar \epsilon)\left ( \sigma^2(\epsilon_0 + \hbar \epsilon)-2i \hbar t_0 \right ) }{2 \hbar^2} \right )}  e^{(i/\hbar)  \sqrt{2m\epsilon} x-i\epsilon t /\hbar }  \tag{10}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$=\frac{\sigma^4}{(2 \hbar \pi )^{3/2}} \int d\epsilon \exp{\left ( - \frac{(\epsilon_0 + \hbar \epsilon)\left ( \sigma^2(\epsilon_0 + \hbar \epsilon)-2i \hbar t_0 \right ) }{2 \hbar^2} \right )}  e^{(i/\hbar)  \sqrt{2m\epsilon} x-i\epsilon t /\hbar}\tag{11} $$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+$$ =\text{integral não tem solução analítica} \blacksquare $$<p>
+
+$$\text{(note que ela não divergiu, apenas não tem solução analítica. Integrando numericamente para todas as constantes = 1 obtemos para a condição inicial: 1.390521824852123 + 0.2928372699906291 i)}  $$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to eliminate the root of the exponent that makes this integration impossible, we can then use the construction of $\epsilon$ that as $P = \pm \sqrt{2 m \epsilon}$, that is, $ \epsilon_p = P^ 2/2m$. By carrying out this replacement, we will obtain that:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\epsilon_p = \frac{P^2}{2m} \Rightarrow d\epsilon = \frac{P}{m} dP \tag{12}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then, proceeding with the integration from 0 to $\infty$ (by replacing the $P^2$ of the exponent of $C_P$)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$ \phi (t|x) = \frac{1}{\sqrt{2 \pi \hbar}} \int  dP \frac{P }{ m} \frac{\sigma^2}{ 2 \pi \hbar} \exp{\left ( - \frac{(P_0 + \frac{\hbar P^2}{2 m})\left ( \sigma^2(P_0 + \frac{\hbar P^2}{2 m})-2i \hbar t_0 \right ) }{2 \hbar^2} \right )}  e^{(i/\hbar) P x - i P^2 t /2 m \hbar } \tag{13} $$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$$\phi (t|x) = \frac{\sigma^2}{ (2 \pi \hbar)^{3/2} m} \int  dP  P \exp{\left ( - \frac{(P_0 + \frac{\hbar P^2}{2 m})\left ( \sigma^2(P_0 + \frac{\hbar P^2}{2 m})-2i \hbar t_0 \right ) }{2 \hbar^2} \right )}  e^{(i/\hbar) P x - i P^2 t /2 m\hbar }  \tag{14}$$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>*Note: I was unable to continue analytically here, however I was able to computationally solve/plot the integral above; I can then work on additional computational graphics from there</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Numerical-evolution-for-integrals-without-analytical-solution">
+<a class="anchor" href="#Numerical-evolution-for-integrals-without-analytical-solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Numerical evolution for integrals without analytical solution<a class="anchor-link" href="#Numerical-evolution-for-integrals-without-analytical-solution"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">quadpy</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">e</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cmath</span>
+
+<span class="c1">#definindo unidade imaginária:</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span>
+
+<span class="c1">#criando a função para o plot</span>
+<span class="k">def</span> <span class="nf">plot_results</span><span class="p">(</span><span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Xp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">P_0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">hbar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+
+    <span class="c1">#preparando a função que vai ser integrada para a integração </span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">i</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">Xp</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">hbar</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">res</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1">#efetuando a integral </span>
+    <span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="n">xmin</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">xmax</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">y</span><span class="p">,</span><span class="n">err</span> <span class="o">=</span> <span class="n">quadpy</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">integral</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">),</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span>
+    <span class="n">Fvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Fvec</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Numerical evolution of the probability density of Gaussian wave packet'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$|\phi(t|x)|^2$'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$t$'</span><span class="p">)</span>
+    
+    
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">plot_results</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">Xp</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">40</span><span class="p">),</span> <span class="n">m</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">hbar</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">P_0</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Above, the automated scheme of the numerical evolution of the most general form of the Gaussian package, where I can put as an interactive variable any interesting quantity for discussion. For a static view I suggest the following view template</p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG1.png" alt=""> <img src="posts_images/PG2.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, with the above script, we can use the following result for the exponential integral that contains the potential; as a souvenir, eq. (4) tells us that:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\phi (t|x) = \frac{1}{\sqrt{2 \pi \hbar}} \int d\epsilon C_\epsilon  e^{(i/\hbar)\hat{\sigma_z} \int_{0}^{x} \sqrt{2m [\epsilon - V(x)]} dx^{\prime}-i\epsilon t /\hbar}  \tag{4}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, proceeding with an arbitrary phisycal potential, let's say the potential of a harmonic oscillator $ V(x) = -kx^2 $, we can solve the above as</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$I = \int_0^x \sqrt{2m\left[ \epsilon - kx^{\prime 2}\right]} dx^\prime \Rightarrow \sqrt{2m} \int_0^x \sqrt{\epsilon - kx^{\prime 2}} dx^\prime \tag{19}$$
+
+Replacing as $x^\prime = \frac{\sqrt{\epsilon} \tan u}{\sqrt{k}} \rightarrow u = \arctan \left( \sqrt{\frac{k}{\epsilon}} u \right); dx^\prime = \sqrt{\frac{k}{\epsilon}} \sec^2(u) $, so
+
+$$ = \int \frac{\sqrt{\epsilon} \sec^2 (u) \sqrt{\epsilon \tan^2 (u) + \epsilon}}{\sqrt{-k}} du \tag{20}$$
+
+with $ \epsilon \tan^2 u + \epsilon = \epsilon \sec^2 u$
+
+$$ = \int \frac{\sqrt{\epsilon} \sec^2 (u) \sqrt{\epsilon \tan^2 (u) + \epsilon}}{\sqrt{-k}} du= \sqrt{\frac{2 m}{-k}} \epsilon \int \sec^3 u du \tag{21}$$
+
+that is, by the formula
+
+$$ \int \sec^n (u) du = \frac{n - 2}{n - 1} \int \sec^{n-2} (u) du + \frac{sec^{n-2}(u)\tan(u)}{n - 1} \tag{21}$$
+
+With n = 3,
+
+$$ = \frac{\sec(u)\tan(u)}{2} + \frac{1}{2} \int \sec(u) du \tag{23}$$
+
+our initial integral then equates to</p>
+<p>
+$$ =\frac{\epsilon}{2} \sqrt{\frac{2m}{k}} \left[ \sec (u) \tan (u) + \ln \left(\sec(u) \tan(u) \right)  \right] \tag{24}$$
+</p>
+<p>removing u from the expression, where 
+$\tan \left( \arctan \left[ \sqrt{\frac{k}{\epsilon}} x^{\prime} \right] \right) = \sqrt{\frac{k}{\epsilon}} x^{\prime}$ also $\sec \left( \arctan \left[ \sqrt{\frac{k}{\epsilon}} x^{\prime} \right] \right) = \sqrt{\frac{k x^{\prime2}}{\epsilon} + 1}$ we obtain that</p>
+$$ = \sqrt{2m} \left[ \frac{\epsilon  \ln \left( \sqrt{1 - \frac{kx^2}{\epsilon}} + \sqrt{\frac{-k}{\epsilon}} x^{\prime} \right) }{2 \sqrt{-k}} + \frac{\sqrt{\epsilon} x^{\prime} \sqrt{1 - \frac{kx^2}{\epsilon}}}{2} \right] \tag{25}$$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>plugging integration boundaries back,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\int_0^x \sqrt{2m\left[ \epsilon - kx^{\prime 2}\right]} dx^\prime= \frac{\sqrt{2m}}{2 k} \left[x k \sqrt{\epsilon - x^2 k} + \epsilon \arcsin \left( \sqrt{\frac{k}{\epsilon}} x \right) \sqrt{k} \right]  \tag{26}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Implementing this result in code to evolve the conditional time-space probability density, it will then be possible to understand how the probability distribution will be affected while under the actuation of the potential</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">quadpy</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">e</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cmath</span>
+
+<span class="c1">#definindo unidade imaginária:</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span>
+
+<span class="c1">#criando a função para o plot</span>
+<span class="k">def</span> <span class="nf">plot_results</span><span class="p">(</span><span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Xp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">P_0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">hbar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+
+    <span class="c1">#preparando a função que vai ser integrada para a integração </span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">i</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Xp</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">Xp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span><span class="p">(</span><span class="n">Xp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">k</span><span class="p">)</span><span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">Xp</span><span class="o">*</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">hbar</span><span class="p">))</span>
+        <span class="c1">#parte do potencial = (Xp*k*cmath.sqrt((Xp**2)*k + (Xp**2)/(2*m))+ (x**2)/(2*m)*np.arcsin(Xp*cmath.sqrt(k*2*m/(x**2)))*sqrt(k))</span>
+        <span class="k">return</span> <span class="n">res</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1">#efetuando a integral </span>
+    <span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="n">xmin</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">xmax</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">y</span><span class="p">,</span><span class="n">err</span> <span class="o">=</span> <span class="n">quadpy</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">integral</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">),</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span>
+    <span class="n">Fvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Fvec</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Numerical evolution of the probability density of Gaussian wave packet under action of potential'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$|\phi(t|x)|^2$'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$t$'</span><span class="p">)</span>
+    
+    
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">plot_results</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">Xp</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">m</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">hbar</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">P_0</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Static visualization:</p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG3.png" alt=""></p>
+<p>Following the same procedure, it is trivial to also solve the problem for an arbitrary square potential of width $a \in [0,5] $. Consider the following potential configuration shown in the image below,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG4.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to perform the integral of expression (4) once again, we will proceed by dividing the wavefunction integral into 3 different regions referring to the potential barrier proposed above. starting with the integral inside the potential barrier, for a $V_0 &gt; \epsilon$, we will obtain from</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\phi (t|x) = \frac{1}{\sqrt{2 \pi \hbar}} \int d\epsilon C_\epsilon  e^{(i/\hbar)\hat{\sigma_z} \int_{0}^{x} \sqrt{2m [\epsilon - V(x)]} dx^{\prime}-i\epsilon t /\hbar}  \tag{4}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Inside the potential barrier,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\phi (t|x) = \frac{1}{\sqrt{2 \pi \hbar}} \int d\epsilon C_\epsilon  e^{(i/\hbar) \int_{0}^{x} \sqrt{2m [\epsilon - V_0]} dx^{\prime}-i\epsilon t /\hbar}\tag{27}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Solving the exponent's integral analytically again</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\int_{0}^{x} \sqrt{2m [\epsilon - V_0]} dx^{\prime} = \sqrt{2m\left({\epsilon}-V_0\right)}x  \tag{28}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Which leads us, following the same procedure as before, to</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">quadpy</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">e</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">cmath</span>
+
+<span class="c1">#definindo unidade imaginária:</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span>
+
+<span class="c1">#criando a função para o plot</span>
+<span class="k">def</span> <span class="nf">plot_results</span><span class="p">(</span><span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Xp</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">P_0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">hbar</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="n">V0</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
+
+    <span class="c1">#preparando a função que vai ser integrada para a integração </span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">e</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">i</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span><span class="o">*</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">)</span> <span class="o">-</span> <span class="n">V0</span><span class="p">))</span><span class="o">*</span><span class="n">Xp</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">hbar</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">res</span>
+    <span class="n">integral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1">#efetuando a integral </span>
+    <span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="n">xmin</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">xmax</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">y</span><span class="p">,</span><span class="n">err</span> <span class="o">=</span> <span class="n">quadpy</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">integral</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">),</span> <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span>
+    <span class="n">Fvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+    
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Fvec</span><span class="p">(</span><span class="n">t</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Numerical evolution of the probability density of Gaussian wave packet under action of potential'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$|\phi(t|x)|^2$'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$t$'</span><span class="p">)</span>
+    
+    
+
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">fixed</span>
+
+<span class="n">interact</span><span class="p">(</span><span class="n">plot_results</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">Xp</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">m</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">hbar</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">P_0</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">V0</span><span class="o">=</span><span class="n">fixed</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Static view before normalization</p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG5.png" alt=""></p>
+<p>Static view after normalization</p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG6.png" alt="">
+<img src="/REsteche_blog/images/copied_from_nb/posts_images/PG7.png" alt="">
+<img src="/REsteche_blog/images/copied_from_nb/posts_images/PG8.png" alt=""></p>
+<p>In order to provide a more detailed analysis of the problem, we will continue our construction observing other parameters of this system. As we know from traditional quantum mechanics theory, we can calculate the scattering width of a wave packet using the statistical variance and the expected value of its operators, then setting up a parallel for our construction leads us to</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$\Delta T(x) \rightarrow \Delta T = \left[ \langle T^2 \rangle - \langle T \rangle^2 \right]^{1/2}  \tag{29}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>where, $$ \langle T \rangle = \int_{- \infty}^{\infty} t |\phi(t|x)|^2 dt; \langle T^2 \rangle = \int_{- \infty}^{\infty} t^2 |\phi(t|x)|^2 dt \tag{30}$$ so,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>
+$$ \Delta T = \Bigg\{ \int_{- \infty}^{\infty} t^2 |\phi(t|x)|^2 dt - \left[ \int_{- \infty}^{\infty} t |\phi(t|x)|^2 dt \right]^2 \Bigg\} \tag{31}$$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>and, as you can remember for the case of the free particle, $$|\phi(t|x)|^2  = \left|  \frac{\sigma^2}{(2 \pi \hbar)^{3/2}m} \int dP C_P P  e^{(i/\hbar)Px - iP^2t/2m \hbar}\right|$$</p>
+<p>and, of course, the reason we started this calculation,</p>
+<p>
+$$ C_P = \exp{\left ( - \frac{(P_0 + \frac{\hbar P^2}{2 m})\left ( \sigma^2(P_0 + \frac{\hbar P^2}{2 m})-2i \hbar t_0 \right ) }{2 \hbar^2} \right )} $$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So, we can proceed to plot $ \Delta T$ vs $x$ using the formulas above doing as</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sqrt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="c1">#defina aqui as constantes: </span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">hbar</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">P_0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span>
+
+<span class="c1">#preparando a função que vai ser integrada para a integração, dividida em real e imaginária</span>
+<span class="c1">#parte real: </span>
+<span class="k">def</span> <span class="nf">re</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+   <span class="n">RE</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">cos</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">hbar</span><span class="p">))</span>
+   <span class="k">return</span> <span class="n">RE</span>
+<span class="n">integral1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
+
+<span class="c1">#parte imaginária</span>
+<span class="k">def</span> <span class="nf">im</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">):</span> 
+    <span class="n">IM</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">sin</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">hbar</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">IM</span>
+<span class="n">integral2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+
+
+<span class="c1">#efetuando a integral em p e passando t para ser o argumento da função de onda </span>
+<span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integral1</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+
+<span class="k">def</span> <span class="nf">M</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integral2</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+
+<span class="k">def</span> <span class="nf">OP</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">F</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">i</span> 
+<span class="n">OPvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">OP</span><span class="p">)</span>
+
+
+
+<span class="c1">#definindo as integrais 1 e 2 do meu \DeltaT</span>
+<span class="c1">#integral de &lt;T^2&gt;</span>
+<span class="k">def</span> <span class="nf">R</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">OPvec</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> 
+<span class="n">Rvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+
+<span class="c1">#integral de &lt;T&gt; para fazer &lt;T&gt;^2</span>
+<span class="k">def</span> <span class="nf">L</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">OPvec</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> 
+<span class="n">Lvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+
+
+<span class="c1">#efetuando a integral em t e passando Xp para ser o argumento da função 1 e 2</span>
+<span class="k">def</span> <span class="nf">Q</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">Rvec</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+
+<span class="k">def</span> <span class="nf">D</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+    <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">Lvec</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="c1">#calculando agora DeltaT como (&lt;T^2&gt; - &lt;T&gt;^2)^-(1/2)</span>
+<span class="k">def</span> <span class="nf">Sol</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">D</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">Sol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">Sol</span><span class="p">)</span>
+
+
+<span class="c1">#organizando o plot da função em questão </span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Sol</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Width of the wave packet as a function of position'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$\Delta T$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$x$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG9.png" alt=""></p>
+<p>Just for the sake of comparison, I will leave here the same graph constructed for the problem from the perspective of traditional quantum mechanics from COHEN-TANNOUDJI, C., DIU, B., &amp; LALOË, F. (2005). Quantum mechanics. New York, Wiley.</p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG10.png" alt=""></p>
+<p>Finally, to further improve our visualization of the system studied, I suggest that we also observe a last plot of the maximum of the probability density function as a function of x. For this, note that in our graph we had the following distribution: $|\phi (t|x)|^2$ vs $t$ for x=1, 2, 3,.....</p>
+<p>So now, we're going to take the value of the maximum of  $|\phi (t)|^2$ in all values it assumes fot different $t$'s, and plot it in function of $x$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to calculate the maximum individually, we will perform a numerically point-by-point derivative using the formal definition of the limit where $\delta = 0$ in:</p>
+<p>
+$$\frac{d f}{d t} = \frac{f(t + \delta/2)+f(t - \delta/2)}{\delta} $$
+</p>
+<p>
+$$\frac{d^2 f}{d t^2} = \frac{f(t + \delta)+f(t - \delta)- 2f(t)}{\delta^2} $$
+</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Where we will analyze the behavior of the first and second derivatives in $|\psi (t|x)|^2$ to measure the maximum point accurately for each iteration over the spatial parameter $x$. Take the following graph as an example, and notice that I took in my algorithm the value to be plotted during an iteration in $x$ that met the conditions: $\frac{d }{d t}|\psi|^2 = 0$ and also $ \frac{d^2 }{d t^2} |\psi|^2 &lt; 0$</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG11.png" alt=""></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#defina aqui as constantes: </span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">hbar</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">P_0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">piu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">valor_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+
+<span class="c1">#definindo uma derivada para o algortimo de máximos</span>
+<span class="k">def</span> <span class="nf">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">'central'</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'central'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'forward'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="o">/</span><span class="n">h</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">'backward'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="n">h</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Method must be 'central', 'forward' or 'backward'."</span><span class="p">)</span>
+
+
+<span class="c1">#executando o algoritmo que calcular \psi e tira seus maximos </span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1">#preparando a função que vai ser integrada para a integração, dividida em real e imaginária</span>
+    <span class="c1">#parte real: </span>
+    <span class="k">def</span> <span class="nf">re</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">RE</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">cos</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">hbar</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">RE</span>
+    <span class="n">integral1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
+    
+    <span class="c1">#parte imaginária</span>
+    <span class="k">def</span> <span class="nf">im</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span> 
+        <span class="n">IM</span> <span class="o">=</span> <span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">P_0</span> <span class="o">+</span> <span class="n">hbar</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">sin</span><span class="p">((</span><span class="mi">1</span><span class="o">/</span><span class="n">hbar</span><span class="p">)</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="o">*</span><span class="n">hbar</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">IM</span>
+    <span class="n">integral2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+    
+    
+    <span class="c1">#efetuando a integral em p e passando t para ser o argumento da função de onda </span>
+    <span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integral1</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">y</span>
+    
+    
+    <span class="k">def</span> <span class="nf">M</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nb">max</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="n">integral2</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="nb">max</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">y</span>
+    
+    <span class="k">def</span> <span class="nf">OP</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">M</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">i</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> 
+    <span class="n">OPvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">OP</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">der1</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="n">deu</span> <span class="o">=</span> <span class="n">derivative</span><span class="p">(</span><span class="n">OP</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'central'</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">deu</span>
+    <span class="n">der1vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">der1</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">der2</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+        <span class="n">deu</span> <span class="o">=</span> <span class="n">derivative</span><span class="p">(</span><span class="n">der1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'central'</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">deu</span>
+    <span class="n">der2vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">der2</span><span class="p">)</span>
+    
+    
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000000</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">der1vec</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">der2vec</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">piu</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">OP</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">valor_x</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="k">break</span>
+            
+<span class="c1">#organizando o plot da função em questão </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">valor_x</span><span class="p">,</span><span class="n">piu</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Maximum of $|\phi (t)|^2$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$MAX(|\phi(t)|^2$)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$x$'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="posts_images/PG12.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Redoing the same process for the point-to-point renormalized free particle wave function, we're going to find out not a too different result, as it follows</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG13.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>also proceeding with the research group's suggestion made during the last presentation, it is of extreme interest to repeat this same script now plotting the value of $t$ that maximizes the probability density of our free particle in respect to the position x. it is important to make it clear that, later, I can do the same for the particle inside the square potential to plot the tunneling time graph, in the same way that it was done here for the free particle, just by substituting the expression of the integrand.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG14.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG15.png" alt="">At the level of comparison, I have already plotted in advance for the non-normalized case</p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/PG16.png" alt=""></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="REsteche/REsteche_blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/REsteche_blog/quantum%20mechanics/quantum%20foundations/time%20distributions/2022/01/28/Pacote_gaussiano.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/REsteche_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/REsteche_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/REsteche_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Personal blog of Ruben Esteche Araujo. A place to talk about physics, technology, programming and many curiosities</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/REsteche" target="_blank" title="REsteche"><svg class="svg-icon grey"><use xlink:href="/REsteche_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/REsteche_blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
