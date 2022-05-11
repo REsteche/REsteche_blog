@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Statystical mechanics | Personal Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Statystical mechanics" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Um compilado de atividades desenvolvidas durante a minha disciplina de mecänica estatistica na pós graduação." />
+<meta property="og:description" content="Um compilado de atividades desenvolvidas durante a minha disciplina de mecänica estatistica na pós graduação." />
+<link rel="canonical" href="https://resteche.github.io/REsteche_blog/modelo%20de%20ising/chaos%20theory/drunk%20walker/maths/2021/07/20/Statistical_mechanics.html" />
+<meta property="og:url" content="https://resteche.github.io/REsteche_blog/modelo%20de%20ising/chaos%20theory/drunk%20walker/maths/2021/07/20/Statistical_mechanics.html" />
+<meta property="og:site_name" content="Personal Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-07-20T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Statystical mechanics" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-07-20T00:00:00-05:00","datePublished":"2021-07-20T00:00:00-05:00","description":"Um compilado de atividades desenvolvidas durante a minha disciplina de mecänica estatistica na pós graduação.","headline":"Statystical mechanics","mainEntityOfPage":{"@type":"WebPage","@id":"https://resteche.github.io/REsteche_blog/modelo%20de%20ising/chaos%20theory/drunk%20walker/maths/2021/07/20/Statistical_mechanics.html"},"url":"https://resteche.github.io/REsteche_blog/modelo%20de%20ising/chaos%20theory/drunk%20walker/maths/2021/07/20/Statistical_mechanics.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/REsteche_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://resteche.github.io/REsteche_blog/feed.xml" title="Personal Blog" /><link rel="shortcut icon" type="image/x-icon" href="/REsteche_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/REsteche_blog/">Personal Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/REsteche_blog/about/">About Me</a><a class="page-link" href="/REsteche_blog/search/">Search</a><a class="page-link" href="/REsteche_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Statystical mechanics</h1><p class="page-description">Um compilado de atividades desenvolvidas durante a minha disciplina de mecänica estatistica na pós graduação.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-07-20T00:00:00-05:00" itemprop="datePublished">
+        Jul 20, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      10 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/REsteche_blog/categories/#Modelo de Ising">Modelo de Ising</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/REsteche_blog/categories/#Chaos Theory">Chaos Theory</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/REsteche_blog/categories/#Drunk Walker">Drunk Walker</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/REsteche_blog/categories/#Maths">Maths</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/REsteche/REsteche_blog/tree/master/_notebooks/2021-07-20-Statistical_mechanics.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/REsteche_blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/REsteche/REsteche_blog/master?filepath=_notebooks%2F2021-07-20-Statistical_mechanics.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/REsteche/REsteche_blog/blob/master/_notebooks/2021-07-20-Statistical_mechanics.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FREsteche%2FREsteche_blog%2Fblob%2Fmaster%2F_notebooks%2F2021-07-20-Statistical_mechanics.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Atividade-1">Atividade 1 </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Simulação-1">Simulação 1 </a></li>
+<li class="toc-entry toc-h3"><a href="#Simulação-2">Simulação 2 </a></li>
+<li class="toc-entry toc-h3"><a href="#Simulação-3">Simulação 3 </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Atividade-2">Atividade 2 </a></li>
+<li class="toc-entry toc-h2"><a href="#Atividade-3---Modelo-de-Ising">Atividade 3 - Modelo de Ising </a></li>
+<li class="toc-entry toc-h2"><a href="#Referências">Referências </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021-07-20-Statistical_mechanics.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Compilado de atividades computacionais executadas durante a discipina de mecânica estatística ministradas pelo professor Paulo Campos.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Atividade-1">
+<a class="anchor" href="#Atividade-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atividade 1<a class="anchor-link" href="#Atividade-1"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<p><em>Objetivo</em>: Simular computacionalmente um número M de caminhantes
+aleatórios unidimensionais capazes de realizar N passos, e plotar 
+histogramas variados de cada uma dessas simulações, assim como calcular 
+média e variância para cada uma delas.</p>
+</li>
+<li>
+<p><em>Sobre a minha simulação</em>: Foram utilizados como parâmetros aqui todos os 
+caminhantes centrados na posição 0, com uma probabilidade de 50% de 
+tomar um passo para a direita e 50% de tomar um passo para esquerda. Para 
+o algoritmo de decisão implementei um método de Monte Carlo a partir da 
+função geradora de números aleatórios (rand()) tomando passos temporais 
+no intervalo de 0.1. Conduzi as simulações em C usando o script referenciado 
+a seguir, e gerei arquivos para plotar os histogramas em um software externo.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#include&lt;math.h&gt;</span>
+<span class="c1">#include&lt;stdio.h&gt;</span>
+<span class="c1">#include&lt;time.h&gt;</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+     <span class="nb">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span>
+     <span class="n">double</span> <span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">xm</span><span class="p">,</span> <span class="n">xd</span><span class="p">;</span>
+     <span class="n">FILE</span><span class="o">*</span><span class="n">random</span><span class="p">;</span>
+     <span class="n">random</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s2">"caminhante.txt"</span><span class="p">,</span><span class="s2">"w+"</span><span class="p">);</span>
+    
+     <span class="n">printf</span><span class="p">(</span><span class="s2">"GERADOR DE ARQUIVO CAMINHANTE ALEATÓRIO</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">);</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s2">"escolha uma probabilidade de passo:</span><span class="se">\n</span><span class="s2">"</span><span class="p">);</span>
+     <span class="n">scanf</span><span class="p">(</span><span class="s2">"</span><span class="si">%lf</span><span class="s2">"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">);</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s2">"escolha um tamanho para os passos:</span><span class="se">\n</span><span class="s2">"</span><span class="p">);</span>
+     <span class="n">scanf</span><span class="p">(</span><span class="s2">"</span><span class="si">%lf</span><span class="s2">"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">t</span><span class="p">);</span>
+     <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="n">NULL</span><span class="p">));</span>
+    
+ <span class="o">//</span><span class="n">lembrar</span><span class="p">:</span> <span class="n">M</span> <span class="n">caminhantes</span> <span class="n">realizando</span> <span class="n">N</span> <span class="n">passos</span><span class="err">!</span>
+    
+     <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">M</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+         <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+         <span class="n">xm</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+         <span class="n">xd</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+         <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+                 <span class="n">r</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span><span class="o">/</span><span class="p">((</span><span class="n">double</span><span class="p">)</span><span class="n">RAND_MAX</span><span class="p">);</span>
+             <span class="k">if</span><span class="p">(</span><span class="n">p</span><span class="o">&lt;</span><span class="n">r</span><span class="p">){</span>
+                 <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">t</span><span class="p">;</span>
+             <span class="p">}</span>
+             <span class="k">else</span><span class="p">{</span>
+                 <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="o">-</span><span class="n">t</span><span class="p">;</span>
+             <span class="p">}</span>
+         <span class="p">}</span>
+         <span class="n">fprintf</span><span class="p">(</span><span class="n">random</span><span class="p">,</span><span class="s2">"</span><span class="si">%d</span><span class="s2"> </span><span class="si">%lf</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">x</span><span class="p">);</span>
+         <span class="n">xm</span> <span class="o">=</span> <span class="p">(</span><span class="n">xm</span> <span class="o">+</span> <span class="n">x</span><span class="p">);</span>
+         <span class="n">xd</span> <span class="o">=</span> <span class="p">(</span><span class="n">xd</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
+     <span class="p">}</span>
+    <span class="n">xm</span> <span class="o">=</span> <span class="n">xm</span><span class="o">/</span><span class="n">M</span><span class="p">;</span>
+    <span class="n">xd</span> <span class="o">=</span> <span class="n">xd</span><span class="o">/</span><span class="n">M</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="si">%lf</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="n">xm</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"</span><span class="si">%lf</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="n">xd</span><span class="p">);</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">random</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"seu arquivo foi criado com sucesso! :)</span><span class="se">\n</span><span class="s2">"</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Simulação-1">
+<a class="anchor" href="#Simula%C3%A7%C3%A3o-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simulação 1<a class="anchor-link" href="#Simula%C3%A7%C3%A3o-1"> </a>
+</h3>
+<ul>
+<li>Parâmetros: M = 1000, N = 100, p = 0.5, t = 0.1</li>
+</ul>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME1.png" alt=""></p>
+<p>Aqui, podemos observar os cálculos para média e variância como sendo: 
+$&lt;x&gt;$ = 0.0012 e $\sigma^2$ = 0.00144</p>
+<ul>
+<li>Histograma: </li>
+</ul>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME2.png" alt=""></p>
+<h3 id="Simulação-2">
+<a class="anchor" href="#Simula%C3%A7%C3%A3o-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simulação 2<a class="anchor-link" href="#Simula%C3%A7%C3%A3o-2"> </a>
+</h3>
+<ul>
+<li>Parâmetros: M = 1000, N = 200, p = 0.5, t = 0.1</li>
+</ul>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME3.png" alt=""></p>
+<p>Aqui, podemos observar os cálculos para média e variância como sendo: 
+$&lt;x&gt;$ =  0.0006 e $\sigma^2$ =  0.00036</p>
+<ul>
+<li>Histograma: </li>
+</ul>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME4.png" alt=""></p>
+<h3 id="Simulação-3">
+<a class="anchor" href="#Simula%C3%A7%C3%A3o-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simulação 3<a class="anchor-link" href="#Simula%C3%A7%C3%A3o-3"> </a>
+</h3>
+<ul>
+<li>Parâmetros: M = 1000, N = 1000, p = 0.5, t = 0.1</li>
+</ul>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME5.png" alt=""></p>
+<p>Aqui, podemos observar os cálculos para média e variância como sendo: 
+$&lt;x&gt;$ = −0.002200 e $\sigma^2$ =  0.0048</p>
+<ul>
+<li>Histograma: </li>
+</ul>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME6.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Atividade-2">
+<a class="anchor" href="#Atividade-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atividade 2<a class="anchor-link" href="#Atividade-2"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<em>Objetivo</em>: Dada uma distribuição de probabilidade específica, selecione um
+número M de pontos arbitrários (onde fixamos M = 1000) onde cada ponto
+corresponde a média de N números aleatórios (N = 20, 100, 500); plote de 
+forma gráfica a média móvel e observe que, conforme o número N cresce, a 
+distribuição fica mais bem definida e a largura da distribuição também muda.
+Distribuições a serem analisadas: Gaussiana, Gamma, exponencial e 
+uniforme.</li>
+<li>
+<em>Sobre a minha simulação</em>: Primeiramente, elaborei um código em C para 
+gerar números aleatórios como usualmente através da função rand() e da 
+biblioteca &lt;time.h&gt; . Ao calcular as médias dos valores uando a função 
+geradora de números aleatórios (double)RAND_MAX) implementei funções 
+para cada uma das funções de distribuição de probabilidade e iterei ela 1000 
+vezes como requisitado, salvando os resultados num arquivo .txt com o título 
+da função na qual estava chamando naquela execução. Refiz o procedimento 
+para cada função 3 vezes criando arquivos com N = 20, 100 e 1000. Com os 
+arquivos em mãos, utilizei um software externo de plotagem para gerar cada 
+um dos gráficos exibidos no decorrer do trabalho.
+Código: segue como exemplo o meu código usado com parâmetros fixados 
+para a função de distribuição de probabilidade gaussiana com N = 20.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#include&lt;math.h&gt;</span>
+<span class="c1">#include&lt;stdio.h&gt;</span>
+<span class="c1">#include&lt;time.h&gt;</span>
+
+
+<span class="n">double</span> <span class="n">gaussdp</span><span class="p">(</span><span class="n">double</span> <span class="n">g</span><span class="p">){</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="o">-</span><span class="n">g</span><span class="p">,</span><span class="mi">2</span><span class="p">));</span>
+    <span class="k">return</span> <span class="n">g</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">double</span> <span class="n">gammadp</span><span class="p">(</span><span class="n">double</span> <span class="n">m</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">m</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">){</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">m</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">){</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">tgamma</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">m</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">double</span> <span class="n">expdp</span><span class="p">(</span><span class="n">double</span> <span class="n">e</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">e</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">){</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">e</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">){</span>
+        <span class="n">e</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">e</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">e</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">double</span> <span class="n">uniformdp</span><span class="p">(</span><span class="n">double</span> <span class="n">u</span><span class="p">){</span>
+<span class="o">//</span><span class="n">usando</span> <span class="n">como</span> <span class="n">parametros</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">0.10</span> <span class="n">e</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.75</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="o">&lt;</span> <span class="mf">0.10</span><span class="p">){</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">u</span> <span class="o">&gt;</span> <span class="mf">0.75</span><span class="p">){</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="mf">0.10</span> <span class="o">&lt;=</span> <span class="n">u</span> <span class="o">&amp;&amp;</span> <span class="n">u</span> <span class="o">&lt;=</span> <span class="mf">0.75</span><span class="p">){</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">u</span><span class="o">-</span><span class="mf">0.1</span><span class="p">)</span><span class="o">/</span><span class="mf">0.65</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">u</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+     <span class="nb">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">N</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="mi">1000</span><span class="p">;</span>
+     <span class="n">double</span> <span class="n">r</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">xm</span><span class="p">,</span> <span class="n">Xm</span><span class="p">;</span>
+     <span class="n">FILE</span><span class="o">*</span><span class="n">random</span><span class="p">;</span>
+     <span class="n">random</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s2">"fdp_gaussianaN20.txt"</span><span class="p">,</span><span class="s2">"w+"</span><span class="p">);</span>
+    
+ <span class="o">//</span><span class="n">lembrar</span><span class="p">:</span> <span class="n">calcular</span> <span class="n">média</span> <span class="n">de</span> <span class="n">N</span> <span class="n">num</span> <span class="n">aleatorios</span> <span class="n">para</span> <span class="n">gerar</span> <span class="n">M</span> <span class="n">pontos</span> <span class="n">da</span> 
+<span class="n">distribuição</span><span class="err">!</span>
+ 
+ 
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="n">NULL</span><span class="p">));</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">M</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">xm</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span><span class="o">/</span><span class="p">((</span><span class="n">double</span><span class="p">)</span><span class="n">RAND_MAX</span><span class="p">);</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">gaussdp</span><span class="p">(</span><span class="n">r</span><span class="p">));</span>
+            <span class="n">xm</span> <span class="o">=</span> <span class="n">xm</span> <span class="o">+</span> <span class="n">x</span><span class="p">;</span>
+        <span class="p">}</span> <span class="n">xm</span> <span class="o">=</span> <span class="n">xm</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+        <span class="n">Xm</span> <span class="o">=</span> <span class="n">Xm</span> <span class="o">+</span> <span class="n">xm</span><span class="p">;</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">random</span><span class="p">,</span><span class="s2">"</span><span class="si">%d</span><span class="s2"> </span><span class="si">%lf</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">xm</span><span class="p">);</span>
+    <span class="p">}</span> <span class="n">Xm</span> <span class="o">=</span> <span class="n">Xm</span><span class="o">/</span><span class="n">M</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"a média e igual a: </span><span class="si">%lf</span><span class="s2">"</span><span class="p">,</span> <span class="n">Xm</span><span class="p">);</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">random</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"seu arquivo foi criado com sucesso! :)</span><span class="se">\n</span><span class="s2">"</span><span class="p">);</span>
+<span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME7.png" alt=""></p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME8.png" alt=""></p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME9.png" alt=""></p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME10.png" alt=""></p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME11.png" alt=""></p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME12.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Atividade-3---Modelo-de-Ising">
+<a class="anchor" href="#Atividade-3---Modelo-de-Ising" aria-hidden="true"><span class="octicon octicon-link"></span></a>Atividade 3 - Modelo de Ising<a class="anchor-link" href="#Atividade-3---Modelo-de-Ising"> </a>
+</h2>
+<ul>
+<li>
+<p><em>Objetivo</em>: Elaborar um programa para simular o modelo de Ising em uma rede 
+quadrada de duas dimensões, implementando o algoritmo de Monte Carlo, usando um 
+sistema ferromagnético com condições de contorno periódicas. Devemos iniciar a partir 
+de diferentes configurações iniciais, isto é, os spins devem ser aleatoriamente 
+distribuídos; todos de mesmos valores; parte com valor 𝑠1 e parte com valor 𝑠2. Plote 
+gráficos para analisar o comportamento do calor específico e da susceptibilidade 
+magnética em diferentes regimes de temperatura para um dado tamanho de rede N (n x
+n), mantendo registro de quantos passos de Monte Carlo são executados. (utilizado 
+como parâmetro para essa construção uma parte da atividade proposta em [2]).</p>
+</li>
+<li>
+<p><em>Sobre a simulação</em> : Como sabemos, o modelo de Ising consiste numa rede de sítios 
+interconectados, cada sítio podendo assumir dois valores distintos $𝑠_1$ e $𝑠_2$. Note que 
+temos aqui apenas uma simples representação de um sistema magnético onde o <em>spin s</em>, 
+pode assumir valores -1 e 1.
+A energia (E) do sistema e a sua magnetização (M) são estabelecidas através das 
+seguintes relações</p>
+</li>
+</ul>
+<p>
+$$ E = - J \sum^N_{&lt;i,j&gt;} s_i s_j - B \sum^N_{i = 1} s_j \tag{1}$$
+</p>
+$$ M = \sum^N_{i = 1} s_i \tag{2}$$<p></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Onde &lt; 𝑖,𝑗 &gt; representam as interações somente entre os primeiros vizinhos, J é a 
+constante de troca do sistema (para sistemas ferromagnéticos temos 𝐽 &gt; 0 e para 
+antiferromagnéticos 𝐽 &lt; 0), e B um campo magnético externo qualquer.
+O sistema é uma das variações mais simples que apresentam uma transição de fase do 
+tipo ordem-desordem, o que permite que usemos ele para representar inclusive outros 
+sistemas físicos que possuem esse mesmo tipo de transição, como gás de rede, 
+interações sociais, economia, neurociência etc. [4]</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#include &lt;stdio.h&gt;</span>
+<span class="c1">#include &lt;stdlib.h&gt;</span>
+<span class="c1">#include &lt;string.h&gt;</span>
+<span class="c1">#include &lt;time.h&gt;</span>
+<span class="c1">#include &lt;math.h&gt;</span>
+
+<span class="c1">#define N 30 //tamanho da rede -1 linha e -1 coluna que vão ser perididas nas iterações</span>
+<span class="c1">#define Nt 784 //constante pra preencher as bordas periódicamente </span>
+<span class="c1">#define J 0.5 //constante ferromagnetismo(+/-); dividimos por 2 para evitar repeticao energias</span>
+<span class="c1">#define B 0 </span>
+<span class="c1">#define NE 2 //Vetor para guardar as energias do passo atual e posterior</span>
+<span class="c1">#define T 5</span>
+<span class="c1">#define C 10000 //Número de iterações</span>
+
+<span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="n">void</span> <span class="n">periodico</span> <span class="p">(</span><span class="nb">int</span> <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">N</span><span class="p">]){</span> <span class="o">//</span><span class="n">Tornando</span> <span class="n">uma</span> <span class="n">matriz</span> <span class="n">quadrada</span> <span class="n">periódica</span>
+     <span class="nb">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+         <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+         <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+     <span class="p">}</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+         <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">];</span>
+         <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+     <span class="p">}</span>
+     <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">];</span>
+     <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+     <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">];</span>
+     <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">energia</span> <span class="p">(</span><span class="nb">int</span> <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">N</span><span class="p">],</span> <span class="n">double</span> <span class="n">Energias</span><span class="p">[</span><span class="n">NE</span><span class="p">],</span> <span class="n">double</span> <span class="n">MEM</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">double</span> <span class="n">t</span><span class="p">){</span> <span class="o">//</span><span class="n">Função</span> <span class="n">onde</span> <span class="n">ocorre</span> <span class="k">as</span> <span class="n">mudanças</span> <span class="n">de</span> <span class="n">energia</span>
+     <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">prob</span><span class="p">,</span> <span class="n">prob2</span><span class="p">,</span> <span class="n">de</span><span class="p">,</span> <span class="n">O</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">N</span><span class="p">];</span>
+     <span class="n">double</span> <span class="n">parametro</span><span class="p">,</span> <span class="n">sorteio</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">Eprov</span><span class="p">;</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+         <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+             <span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="n">prob</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="o">//</span><span class="n">escolhendo</span> <span class="n">um</span> <span class="n">spin</span> <span class="n">aleatório</span> <span class="n">da</span> <span class="n">rede</span>
+     <span class="n">prob2</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+     <span class="n">Energias</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+     <span class="n">Energias</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+         <span class="n">MEM</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+     <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span><span class="n">Calculando</span> <span class="n">a</span> <span class="n">energia</span> <span class="n">atual</span>
+         <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+             <span class="n">Energias</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="o">-</span><span class="n">J</span><span class="o">*</span><span class="p">((</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">+</span>
+            <span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]))</span> <span class="o">-</span> <span class="n">B</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+    <span class="n">O</span><span class="p">[</span><span class="n">prob</span><span class="p">][</span><span class="n">prob2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">O</span><span class="p">[</span><span class="n">prob</span><span class="p">][</span><span class="n">prob2</span><span class="p">];</span> <span class="o">//</span><span class="n">Alterando</span> <span class="n">o</span> <span class="n">spin</span> <span class="n">escolhido</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span><span class="n">Calculando</span> <span class="n">a</span> <span class="n">nova</span> <span class="n">energia</span>
+         <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+             <span class="n">Energias</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="o">-</span><span class="n">J</span><span class="o">*</span><span class="p">((</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">+</span>
+            <span class="p">(</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]))</span> <span class="o">-</span> <span class="n">B</span><span class="o">*</span><span class="n">O</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="n">de</span> <span class="o">=</span> <span class="n">Energias</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">Energias</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="o">//</span><span class="n">Diferença</span> <span class="n">de</span> <span class="n">energia</span> <span class="n">entre</span> <span class="n">os</span> <span class="n">estados</span>
+     <span class="k">if</span><span class="p">(</span><span class="n">de</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">){</span> <span class="o">//</span><span class="n">Analisando</span> <span class="n">o</span> <span class="n">caso</span> <span class="n">onde</span> <span class="n">a</span> <span class="n">energia</span> <span class="n">aumenta</span>
+         <span class="n">sorteio</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="k">RAND_MAX</span>;
+         <span class="n">sorteio</span> <span class="o">=</span> <span class="n">sorteio</span><span class="o">/</span><span class="n">RAND_MAX</span><span class="p">;</span>
+         <span class="n">parametro</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">de</span><span class="o">/</span><span class="n">t</span><span class="p">);</span>
+         <span class="k">if</span><span class="p">(</span><span class="n">sorteio</span><span class="o">&lt;=</span><span class="n">parametro</span><span class="p">){</span>
+             <span class="n">M</span><span class="p">[</span><span class="n">prob</span><span class="p">][</span><span class="n">prob2</span><span class="p">]</span> <span class="o">=</span> <span class="n">O</span><span class="p">[</span><span class="n">prob</span><span class="p">][</span><span class="n">prob2</span><span class="p">];</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span><span class="n">Iterando</span> <span class="n">E</span><span class="p">,</span> <span class="n">E</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="n">e</span> <span class="n">M</span><span class="o">^</span><span class="mi">2</span>
+         <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+             <span class="n">Eprov</span> <span class="o">=</span> <span class="o">-</span><span class="n">J</span><span class="o">*</span><span class="p">((</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">])</span> <span class="o">+</span> <span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span>
+            <span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]))</span> <span class="o">-</span> <span class="n">B</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+             <span class="n">MEM</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Eprov</span><span class="p">;</span>
+             <span class="n">MEM</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">Eprov</span><span class="o">*</span><span class="n">Eprov</span><span class="p">;</span>
+             <span class="n">MEM</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+             <span class="n">MEM</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">main</span><span class="p">(){</span>
+     <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">M</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">N</span><span class="p">],</span> <span class="n">k</span><span class="p">;</span> <span class="o">//</span><span class="n">k</span> <span class="n">é</span> <span class="n">o</span> <span class="n">contador</span> <span class="n">de</span> <span class="n">iterações</span>
+     <span class="n">double</span> <span class="n">prob</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">Energias</span><span class="p">[</span><span class="n">NE</span><span class="p">],</span> <span class="n">MEM</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="o">//</span><span class="n">MEM</span> <span class="n">guarda</span> <span class="k">as</span> <span class="n">grandezas</span> <span class="n">desejadas</span> <span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">E</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="n">e</span> <span class="n">M</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+     <span class="n">FILE</span><span class="o">*</span> <span class="n">data</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s2">"Dados.txt"</span><span class="p">,</span> <span class="s2">"w+"</span><span class="p">);</span>
+     <span class="n">srand</span><span class="p">((</span><span class="n">unsigned</span><span class="p">)</span><span class="n">time</span><span class="p">(</span><span class="n">NULL</span><span class="p">));</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mf">0.5</span><span class="p">;</span><span class="n">t</span><span class="o">&lt;=</span><span class="n">T</span><span class="p">;</span><span class="n">t</span><span class="o">+=</span><span class="mf">0.1</span><span class="p">){</span> <span class="o">//</span><span class="n">Loop</span> <span class="n">para</span> <span class="n">analisar</span> <span class="n">diferentes</span> <span class="n">temperaturas</span>
+         <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">NE</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span><span class="n">Zerando</span> <span class="n">os</span> <span class="n">dados</span>
+             <span class="n">Energias</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+         <span class="p">}</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+         <span class="n">MEM</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+     <span class="p">}</span> 
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span><span class="n">Definindo</span> <span class="n">a</span> <span class="n">população</span> <span class="n">inicial</span>
+         <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="n">j</span><span class="o">++</span><span class="p">){</span>
+         <span class="o">/*</span><span class="n">prob</span> <span class="o">=</span> <span class="n">rand</span><span class="p">()</span><span class="o">%</span><span class="k">RAND_MAX</span>;
+         <span class="n">prob</span> <span class="o">=</span> <span class="n">prob</span><span class="o">/</span><span class="n">RAND_MAX</span><span class="p">;</span>
+     <span class="k">if</span><span class="p">(</span><span class="n">prob</span><span class="o">&lt;=</span><span class="mf">0.5</span><span class="p">){</span>
+         <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="o">//</span><span class="n">isso</span> <span class="n">daqui</span> <span class="n">foi</span> <span class="n">de</span> <span class="n">quando</span> <span class="n">estavamos</span> <span class="n">gerando</span> <span class="n">condição</span> <span class="n">incial</span> <span class="n">aleatoria</span><span class="p">,</span> <span class="n">antes</span> <span class="n">da</span> <span class="n">dica</span> <span class="n">do</span> <span class="n">professor</span> <span class="n">de</span> <span class="n">começar</span> <span class="n">todos</span> <span class="n">em</span> <span class="o">+/-</span><span class="mi">1</span> 
+     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+         <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span><span class="o">*/</span>
+     <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+     <span class="p">}</span>
+ <span class="p">}</span>
+     <span class="n">periodico</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="n">C</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span> <span class="n">Loop</span> <span class="n">das</span> <span class="n">iterações</span>
+         <span class="n">energia</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">Energias</span><span class="p">,</span><span class="n">MEM</span><span class="p">,</span><span class="n">t</span><span class="p">);</span>
+         <span class="n">periodico</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+     <span class="p">}</span>
+     <span class="o">//</span><span class="n">fprintf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s2">"</span><span class="si">%g</span><span class="s2"> </span><span class="si">%g</span><span class="s2"> </span><span class="si">%g</span><span class="s2"> </span><span class="si">%g</span><span class="s2"> </span><span class="si">%g</span><span class="s2">"</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">MEM</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">Nt</span><span class="p">,</span><span class="n">fabs</span><span class="p">(</span><span class="n">MEM</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="n">Nt</span><span class="p">,</span> 
+    <span class="p">(</span><span class="nb">float</span><span class="p">)((</span><span class="n">MEM</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">Nt</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">MEM</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">MEM</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">Nt</span><span class="o">*</span><span class="n">Nt</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="p">(</span><span class="nb">float</span><span class="p">)((</span><span class="n">MEM</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="n">Nt</span><span class="p">)</span><span class="o">-</span>
+    <span class="p">(</span><span class="n">MEM</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">MEM</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">Nt</span><span class="o">*</span><span class="n">Nt</span><span class="p">))</span><span class="o">/</span><span class="n">t</span><span class="p">);</span>
+    <span class="o">//</span><span class="n">desistimos</span> <span class="n">desse</span> <span class="n">printf</span> <span class="n">por</span> <span class="n">conta</span> <span class="n">de</span> <span class="n">correlação</span>
+     <span class="n">fprintf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s2">"</span><span class="si">%g</span><span class="s2"> </span><span class="si">%g</span><span class="s2"> "</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">MEM</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">Nt</span><span class="p">);</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="mi">500</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span> <span class="n">Loop</span> <span class="n">das</span> <span class="n">iterações</span>
+         <span class="n">energia</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">Energias</span><span class="p">,</span><span class="n">MEM</span><span class="p">,</span><span class="n">t</span><span class="p">);</span>
+         <span class="n">periodico</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+     <span class="p">}</span>
+     <span class="n">fprintf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s2">"</span><span class="si">%g</span><span class="s2"> "</span><span class="p">,</span><span class="n">fabs</span><span class="p">(</span><span class="n">MEM</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="n">Nt</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="mi">500</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span> <span class="n">Loop</span> <span class="n">das</span> <span class="n">iterações</span>
+         <span class="n">energia</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">Energias</span><span class="p">,</span><span class="n">MEM</span><span class="p">,</span><span class="n">t</span><span class="p">);</span>
+         <span class="n">periodico</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+    <span class="p">}</span>
+     <span class="n">fprintf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s2">"</span><span class="si">%g</span><span class="s2"> "</span><span class="p">,(</span><span class="nb">float</span><span class="p">)((</span><span class="n">MEM</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">Nt</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">MEM</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">MEM</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">Nt</span><span class="o">*</span><span class="n">Nt</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">));</span>
+     <span class="k">for</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;</span><span class="mi">500</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">){</span> <span class="o">//</span> <span class="n">Loop</span> <span class="n">das</span> <span class="n">iterações</span>
+         <span class="n">energia</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">Energias</span><span class="p">,</span><span class="n">MEM</span><span class="p">,</span><span class="n">t</span><span class="p">);</span>
+         <span class="n">periodico</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+     <span class="p">}</span>
+     <span class="n">fprintf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s2">"</span><span class="si">%g</span><span class="s2">"</span><span class="p">,(</span><span class="nb">float</span><span class="p">)((</span><span class="n">MEM</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="n">Nt</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">MEM</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">MEM</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">Nt</span><span class="o">*</span><span class="n">Nt</span><span class="p">))</span><span class="o">/</span><span class="n">t</span><span class="p">);</span>
+     <span class="n">fprintf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">);</span>
+     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">t</span> <span class="o">&lt;&lt;</span> <span class="s2">" ok"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+     <span class="p">}</span>
+     <span class="n">fclose</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<em>Trabalho gráfico</em> : Nessa sessão podemos observar como prometido os plots 
+referentes as propriedades de susceptibilidade magnética e calor específico para 
+fazermos uma análise quantitativa mais eficiente do nosso sistema. Para isso, 
+consideramos que o sistema precisa rodar o algoritmo de metropolis várias vezes até 
+estar termalizado, algoritmo esse que consiste no seguinte passo a passo:</li>
+</ul>
+<ol>
+<li>Testamos uma modificação aleatória no sistema;</li>
+<li>Calculamos a diferença de energia devido a esta modificação;</li>
+<li>Se ∆𝐸 ≤ 0, a nova configuração é aceita;</li>
+<li>Se ∆𝐸 &gt; 0, é preciso calcular 𝜔 = exp(−𝛽∆𝐸) e gerar um número aleatório 𝑟 ∈
+[0,1] uniformemente. Se 𝑟 ≤ 𝜔 a nova configuração é aceita; se 𝑟 &gt; 𝜔 a modificação é 
+descartada.</li>
+</ol>
+<p>Como vamos calcular as grandezas &lt; 𝐸 &gt;, &lt; $𝐸^2$ &gt;, &lt; 𝑀 &gt; 𝑒 &lt; $𝑀^2$ &gt; durante nossa 
+simulação, precisamos garantir que um número razoável de passos de Monte Carlo 
+ocorra para o sistema estar em um estado termalizado [1][2], para somente então 
+começarmos a calcular essas médias. Após isso, os observáveis são calculados de 
+acordo com as seguintes fórmulas:</p>
+<p>Para o Calor específico (C), vamos ter</p>
+<p>
+$$ C = \frac{&lt;E^2&gt; - &lt;E&gt;^2}{k_b T^2}$$
+</p>
+<p>E para a Susceptibilidade magnética (𝜒)</p>
+$$ \chi = = \frac{&lt;M^2&gt; - &lt;M&gt;^2}{k_b T} $$<p></p>
+<p>Ambos os gráficos vão ser gerados em função da temperatura que variamos no 
+código/sistema.</p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME13.png" alt=""></p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME14.png" alt=""></p>
+<p>Dado a determinação coerente com o esperado desses observáveis, também tomamos a 
+liberdade de introduzir os gráficos que são geralmente referenciados na literatura [1][3] 
+para efeito de comparação do bom andamento da simulação do nosso sistema.</p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME15.png" alt=""></p>
+<p><img src="/REsteche_blog/images/copied_from_nb/posts_images/ME16.png" alt=""></p>
+<p>Acreditamos que esses gráficos são igualmente importantes para a visualização e um 
+bom entendimento do funcionamento do sistema proposto. A temperatura crítica 𝑇𝑐 que 
+caracteriza a perda das propriedades coletivas dos 𝑠𝑝𝑖𝑛𝑠 e consequentemente marca a 
+perda do fenômeno de histerese [5], é coerente em todos os gráficos apresentados (e 
+pode ser determinada com precisão dado um maior poder de processamento para gerar 
+uma rede de spins maior que N=100).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Referências">
+<a class="anchor" href="#Refer%C3%AAncias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Referências<a class="anchor-link" href="#Refer%C3%AAncias"> </a>
+</h2>
+<ol>
+<li>Antunes, Felipe. (2012). Estudo do Modelo de Ising Bidimensional Utilizando o 
+Algorítimo de Metropolis. 10.13140/RG.2.1.2354.1840.</li>
+<li>Cabral, Leonardo. (2018.1). Módulo 11 – Simulação de Ensembles estatísticos 
+utilizando Monte Carlo. Notas de aula da disciplina Métodos computacionais 
+para física.</li>
+<li>Barry M. McCoy and Tai Tsun Wu (1973), The Two-Dimensional Ising Model. 
+Harvard University Press, Cambridge Massachusetts, ISBN 0-674-91440-6.</li>
+<li>«PiresMA/Ising_like_models_interdisciplinary_applications». GitHub. 
+Consultado em 12 de julho de 2021.</li>
+<li>Modelo Ising – Wikipédia, a enciclopédia livre (wikipedia.org)</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="REsteche/REsteche_blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/REsteche_blog/modelo%20de%20ising/chaos%20theory/drunk%20walker/maths/2021/07/20/Statistical_mechanics.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/REsteche_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/REsteche_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/REsteche_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Personal blog of Ruben Esteche Araujo. A place to talk about physics, technology, programming and many curiosities</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/REsteche" target="_blank" title="REsteche"><svg class="svg-icon grey"><use xlink:href="/REsteche_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/REsteche_blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
