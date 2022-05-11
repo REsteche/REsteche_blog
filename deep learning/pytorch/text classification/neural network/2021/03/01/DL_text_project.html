@@ -10,15 +10,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="In this post I present my first attemp to develop a full textual neural network and explains all its principles." />
 <meta property="og:description" content="In this post I present my first attemp to develop a full textual neural network and explains all its principles." />
-<link rel="canonical" href="https://resteche.github.io/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2020/03/01/DL_text_project.html" />
-<meta property="og:url" content="https://resteche.github.io/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2020/03/01/DL_text_project.html" />
+<link rel="canonical" href="https://resteche.github.io/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2021/03/01/DL_text_project.html" />
+<meta property="og:url" content="https://resteche.github.io/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2021/03/01/DL_text_project.html" />
 <meta property="og:site_name" content="Personal Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-03-01T00:00:00-06:00" />
+<meta property="article:published_time" content="2021-03-01T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Text Classifier Network" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-03-01T00:00:00-06:00","datePublished":"2020-03-01T00:00:00-06:00","description":"In this post I present my first attemp to develop a full textual neural network and explains all its principles.","headline":"Text Classifier Network","mainEntityOfPage":{"@type":"WebPage","@id":"https://resteche.github.io/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2020/03/01/DL_text_project.html"},"url":"https://resteche.github.io/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2020/03/01/DL_text_project.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-03-01T00:00:00-06:00","datePublished":"2021-03-01T00:00:00-06:00","description":"In this post I present my first attemp to develop a full textual neural network and explains all its principles.","headline":"Text Classifier Network","mainEntityOfPage":{"@type":"WebPage","@id":"https://resteche.github.io/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2021/03/01/DL_text_project.html"},"url":"https://resteche.github.io/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2021/03/01/DL_text_project.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/REsteche_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://resteche.github.io/REsteche_blog/feed.xml" title="Personal Blog" /><link rel="shortcut icon" type="image/x-icon" href="/REsteche_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -89,8 +89,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Text Classifier Network</h1><p class="page-description">In this post I present my first attemp to develop a full textual neural network and explains all its principles.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-03-01T00:00:00-06:00" itemprop="datePublished">
-        Mar 1, 2020
+    <h1 class="post-title p-name" itemprop="name headline">Text Classifier Network</h1><p class="page-description">In this post I present my first attemp to develop a full textual neural network and explains all its principles.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-03-01T00:00:00-06:00" itemprop="datePublished">
+        Mar 1, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
@@ -122,24 +122,24 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-justify-center">
           <div class="px-2">
 
-    <a href="https://github.com/REsteche/REsteche_blog/tree/master/_notebooks/2020-03-01-DL_text_project.ipynb" role="button" target="_blank">
+    <a href="https://github.com/REsteche/REsteche_blog/tree/master/_notebooks/2021-03-01-DL_text_project.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/REsteche/REsteche_blog/master?filepath=_notebooks%2F2020-03-01-DL_text_project.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/REsteche/REsteche_blog/master?filepath=_notebooks%2F2021-03-01-DL_text_project.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/REsteche/REsteche_blog/blob/master/_notebooks/2020-03-01-DL_text_project.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/REsteche/REsteche_blog/blob/master/_notebooks/2021-03-01-DL_text_project.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
           <div class="px-2">
-  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FREsteche%2FREsteche_blog%2Fblob%2Fmaster%2F_notebooks%2F2020-03-01-DL_text_project.ipynb" target="_blank">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2FREsteche%2FREsteche_blog%2Fblob%2Fmaster%2F_notebooks%2F2021-03-01-DL_text_project.ipynb" target="_blank">
       <img class="notebook-badge-image" src="/REsteche_blog/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
   </a>
 </div>
@@ -166,7 +166,7 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2020-03-01-DL_text_project.ipynb
+# file to edit: _notebooks/2021-03-01-DL_text_project.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -1625,7 +1625,7 @@ i liked this movie because i like the idea of the premise of the movie , the ( v
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2020/03/01/DL_text_project.html" hidden></a>
+</script><a class="u-url" href="/REsteche_blog/deep%20learning/pytorch/text%20classification/neural%20network/2021/03/01/DL_text_project.html" hidden></a>
 </article>
 
       </div>
